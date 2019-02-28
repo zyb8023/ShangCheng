@@ -1,0 +1,54 @@
+// scss文件中引入scss库
+@import './qunar/reset.scss';
+
+html, body, #app {
+  @include rect(100%, 100%); // width: 100%;height: 100%;
+}
+
+#app {
+  @include flexbox(); // display: flex;display: box;display: flex-box;
+  @include flex-direction(column); // flex-direction: column;
+  .container {
+    @include flex(); // flex: 1; 如果是数值弹性盒布局，那么此时width: 0.1px
+    @include rect(100%, auto);
+    @include flexbox();
+    @include flex-direction(column);
+
+    .header {
+      @include rect(100%, 0.44rem);
+      @include background-color(#f66);
+    }
+
+    .content {
+      @include flex();
+      @include rect(100%, auto);
+      @include overflow();
+    }
+  }
+
+  .footer {
+    @include rect(100%, 0.6rem); // width: 100%;height: 0.5rem;
+    @include background-color(#fff); // background-color: #eee;
+
+    ul {
+      @include rect(100%, 100%); 
+      @include flexbox();
+      li {
+        @include flex();
+        @include rect(auto, 100%);
+        // 实现的是元素的内部元素水平垂直居中
+        @include flexbox();
+        @include flex-direction(column);
+        @include justify-content(); // justify-content: center
+        @include align-items(); // align-items: center
+        .van-icon{
+            @include font-size(0.22rem);
+        }
+        &.footer-active-class{
+            @include text-color(#99f);
+        }
+
+      }
+    }
+  }
+}
