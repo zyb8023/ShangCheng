@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <search-bar></search-bar>
     <silder :homeSilder="homeSilder"></silder>
     <recom :homeRecom="homeRecom"></recom>
     <list :productList="productList.block_317" :titles="'热销机型'"></list>
@@ -13,6 +14,7 @@ import * as types from "@/store/types.js";
 import silder from "@/components/home/Silder";
 import recom from "@/components/home/Recom";
 import list from "@/components/home/List";
+import SearchBar from "@/components/home/SearchBar";  
 export default {
   methods: {
     //添加状态
@@ -46,7 +48,8 @@ export default {
   components: {
     silder,
     recom,
-    list
+    list,
+    SearchBar
   }
 };
 </script>

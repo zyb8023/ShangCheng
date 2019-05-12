@@ -66,6 +66,9 @@ const api = {
                 .catch(err => reject(err))
         })
     },
+    /**
+     * 分类视频数据请求
+     */
     requireKindVideo(){
       //返回Promise对象解决异步操作
       return new Promise((resolve, reject) => {
@@ -81,6 +84,23 @@ const api = {
           })
           .catch(err => reject(err))
       })
+    },
+    /**
+     * 添加搜索接口
+     * params:searchName--搜索关键词
+     */
+    requireSeacrch (searchName){
+        return new Promise((resolve, reject)=>{
+            axios({
+                url:'https://lists.meizu.com/page/search?keyword=note8', //接口不能用
+                // TODO
+                params: {
+                    keyword: searchName
+                }
+            })
+            .then(res => resolve(res.data))
+            .catch(err => reject(err))
+        })
     }
 };
 export default api
